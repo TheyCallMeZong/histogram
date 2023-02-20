@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="data">
-    <div class="dataInp">Enter a data separated by a space&nbsp;
+    <div class="dataInp">Enter numbers separated by commas&nbsp;
         <label>
             <input id="dataInput" type="text">
         </label>
@@ -33,7 +33,22 @@
         </button>
     </div>
     <br>
-    <div id="info-box">Value: </div>
+    <div>
+        <div id="info-box">Value: </div>
+        <div class="color-picker-rect">
+            <label for="color-picker-rect">Color picker for rectangle:</label>
+            <input type="color" id="color-picker-rect" value="#191970">
+        </div>
+        <div class="color-picker">
+            <label for="color-picker">Color picker:</label>
+            <input type="color" id="color-picker" value="#00000">
+        </div>
+        <div class="color-picker-canvas">
+            <label for="color-picker-canvas">Color picker for canvas:</label>
+            <input type="color" id="color-picker-canvas" value="#FFFFFF">
+        </div>
+    </div>
+    <br>
     <canvas id="histogram"></canvas>
     <script src="histogram.js"></script>
 </div>

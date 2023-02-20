@@ -18,4 +18,13 @@ canvas {
 #info-box {
     margin-top: 10px;
     font-weight: bold;
+    display: flex;
+    min-width: 50%;
+    float: left;
+}
+
+.color-picker, .color-picker-rect, .color-picker-canvas{
+    text-align: right;
+    margin-left: 50%;
+    width: 50%;
 }

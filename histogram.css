@@ -1,0 +1,21 @@
+button {
+    border-radius: 20px;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+.sig {
+    display: flex;
+}
+
+.dataInp {
+    display: flex;
+}
+
+#info-box {
+    margin-top: 10px;
+    font-weight: bold;
+}

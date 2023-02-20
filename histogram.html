@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Histogram</title>
+    <link rel="stylesheet" href="histogram.css">
+</head>
+<body>
+<div class="data">
+    <div class="dataInp">Enter a data separated by a space&nbsp;
+        <label>
+            <input id="dataInput" type="text">
+        </label>
+        &nbsp;&nbsp;Enter the data series name&nbsp;&nbsp;
+        <label for="sig">
+            <input id="sig">
+        </label>
+    </div>
+    <br>
+    <div>
+        Enter the signature for data
+        <label>
+            <input id="signature" type="text">
+        </label>
+    </div>
+    <br>
+    <div>
+        <button onclick="makeHistogram()">
+            Make histogram
+        </button>
+        <button id="download">
+            Download this histogram
+        </button>
+    </div>
+    <br>
+    <div id="info-box">Value: </div>
+    <canvas id="histogram"></canvas>
+    <script src="histogram.js"></script>
+</div>
+</body>
+</html>

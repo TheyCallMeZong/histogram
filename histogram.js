@@ -6,13 +6,15 @@ const widthOffset = 41
 
 //ширина колонки и расстояние между колонками
 const barWidth = 30
-const barSpacing = 10
+let barSpacing = 10
 
 //элемент где будет отрисовываться диаграмма
 const canvas = document.getElementById('histogram')
 
 //инфа о прямоугольнике
 const infoBox = document.getElementById('info-box')
+
+let sig = document.getElementById("sig")
 
 //контекст для рисования на холсте
 const ctx = canvas.getContext('2d')
@@ -35,7 +37,7 @@ let color = "#000000"
 let colorRect = 'MidnightBlue'
 
 //цвет канваса
-let canvasColor = "#FFFFFF"
+let canvasColor = "#DCDCDC"
 
 //разница значений для отрисовки боковых линий
 let offsetForPaintBackLines = 5
@@ -49,19 +51,26 @@ let rectHeight = []
 //функция для получения чисел
 function getNumbers(){
     let dataInput = document.getElementById('dataInput')
-    let data = dataInput.value.split(',')
-
+    let data = dataInput.value.split(' ')
     for (let i = 0; i < data.length; i++){
         if (!isNaN(data[i])){
             dArray[i] = parseFloat(data[i])
+            if (isNaN(dArray[i])) {
+                alert("Неверно указаны входные данные")
+                return 0
+            }
+        } else{
+            alert("Укажите число")
+            return 0
         }
     }
+
     return data
 }
 
 //установка размера холста, если холст больше размеров экрана то мы катапультируемся
 function setSizeHistogram(data){
-    canvas.width = data.length * widthOffset + barWidth
+    canvas.width = data.length * widthOffset + barWidth + sig.value.length * 8
     canvas.height = 600
 }
 
@@ -94,7 +103,6 @@ function drawBackLines(maxValue){
 //добаление описания снизу гистограммы
 function setSignature(){
     ctx.font = "bold 16px Times New Roman"
-
     let sig = document.getElementById("sig").value
     ctx.fillText(sig,canvas.width / 2 - sig.length * 2, canvas.height - 2)
 }
@@ -122,8 +130,9 @@ function drawBackVerticalLines() {
 //творим гистограмму по сути главный метод
 function makeHistogram(){
     let data = getNumbers()
-    if (data.length === 0){
-        alert('Enter the data')
+    if (data === 0){
+        ctx.fillStyle = "#fff"
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
         return
     }
 
@@ -143,7 +152,9 @@ function makeHistogram(){
     setSignature()
 }
 
-//если юзер нажал enter то вызыввается функция для построения гистограммы
+
+
+//если юзер нажал enter, то вызыввается функция для построения гистограммы
 document.addEventListener( 'keyup', event => {
     if (event.code === 'Enter') {
         makeHistogram()
@@ -174,9 +185,9 @@ function displayInfo(event) {
 
     if (barValue !== undefined &&
         (canvas.height - y - offsetBot) <= rectHeight[barIndex]){
-        infoBox.innerHTML = `Value: ${barValue}`
+        infoBox.innerHTML = `Значение: ${barValue}`
     } else {
-        infoBox.innerHTML = `Value: `
+        infoBox.innerHTML = `Значение: `
     }
 }
 
@@ -197,6 +208,19 @@ function setCanvasColor(colorHash){
 
 function check(){
     if (dArray.length !== 0) {
-        makeHistogram()
+        setSizeHistogram(dArray)
+
+        ctx.fillStyle = canvasColor
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        let maxValue = Math.max(...dArray)
+        offsetForPaintBackLines = Math.round(maxValue / minOffset)
+
+        ctx.fillStyle = colorRect
+        drawRectangle(dArray, maxValue)
+
+        ctx.fillStyle = color
+        drawBackLines(maxValue)
+        drawBackVerticalLines()
+        setSignature()
     }
 }

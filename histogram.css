@@ -1,16 +1,40 @@
-button {
-    border-radius: 20px;
-}
-
 canvas {
     display: block;
     margin: 0 auto;
 }
 
+body{
+}
+
 .sig {
     display: flex;
 }
+.dataInp {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
 
+.dataInp label{
+    font-weight: bold;
+}
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.dataInp input[type="text"],
+.dataInp input[type="text"]:focus {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
 .dataInp {
     display: flex;
 }
@@ -27,4 +51,40 @@ canvas {
     text-align: right;
     margin-left: 50%;
     width: 50%;
+}
+
+#download,
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    background: #333;
+    color: #fff;
+}
+
+#download:hover,
+button:hover {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#info-box {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.color-picker-rect,
+.color-picker,
+.color-picker-canvas {
+    margin-bottom: 10px;
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 30px;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    padding: 0;
 }

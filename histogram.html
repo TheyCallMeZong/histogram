@@ -2,50 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Histogram</title>
+    <title>Гистограмма</title>
     <link rel="stylesheet" href="histogram.css">
 </head>
 <body>
 <div class="data">
-    <div class="dataInp">Enter numbers separated by commas&nbsp;
+    <div class="dataInp">Укажите числа через пробел&nbsp;
         <label>
             <input id="dataInput" type="text">
         </label>
-        &nbsp;&nbsp;Enter the data series name&nbsp;&nbsp;
+        &nbsp;&nbsp;Введите название серии данных&nbsp;&nbsp;
         <label for="sig">
-            <input id="sig">
+            <input id="sig" type="text">
         </label>
     </div>
     <br>
     <div>
-        Enter the signature for data
-        <label>
-            <input id="signature" type="text">
-        </label>
-    </div>
-    <br>
-    <div>
-        <button onclick="makeHistogram()">
-            Make histogram
+        <button onclick="makeHistogram()" id="make">
+            Сделать гистограмму
         </button>
         <button id="download">
-            Download this histogram
+            Скачать гистограмму
         </button>
     </div>
     <br>
     <div>
-        <div id="info-box">Value: </div>
+        <div id="info-box">Значение: </div>
         <div class="color-picker-rect">
-            <label for="color-picker-rect">Color picker for rectangle:</label>
+            <label for="color-picker-rect">Выбор цвета для прямоугольника:</label>
             <input type="color" id="color-picker-rect" value="#191970">
         </div>
         <div class="color-picker">
-            <label for="color-picker">Color picker:</label>
+            <label for="color-picker">Выбор цвета:</label>
             <input type="color" id="color-picker" value="#00000">
         </div>
         <div class="color-picker-canvas">
-            <label for="color-picker-canvas">Color picker for canvas:</label>
-            <input type="color" id="color-picker-canvas" value="#FFFFFF">
+            <label for="color-picker-canvas">Выбор цвета для холста:</label>
+            <input type="color" id="color-picker-canvas" value="#DCDCDC">
         </div>
     </div>
     <br>

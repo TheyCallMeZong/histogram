@@ -7,41 +7,46 @@
 </head>
 <body>
 <div class="data">
-    <div class="dataInp">Укажите числа через пробел&nbsp;
-        <label>
-            <input id="dataInput" type="text">
-        </label>
-        &nbsp;&nbsp;Введите название серии данных&nbsp;&nbsp;
-        <label for="sig">
-            <input id="sig" type="text">
-        </label>
-    </div>
-    <br>
-    <div>
-        <button onclick="makeHistogram()" id="make">
-            Сделать гистограмму
-        </button>
-        <button id="download">
-            Скачать гистограмму
-        </button>
-    </div>
-    <br>
-    <div>
-        <div id="info-box">Значение: </div>
-        <div class="color-picker-rect">
-            <label for="color-picker-rect">Выбор цвета для прямоугольника:</label>
-            <input type="color" id="color-picker-rect" value="#191970">
+    <div class="container">
+        <div class="left">
+            <div class="dataInp" >Укажите числа через пробел&nbsp;
+                <label>
+                    <input id="dataInput" type="text">
+                </label>
+            </div>
+            <div class="dataInp">Введите название серии данных&nbsp;&nbsp;
+                <label>
+                    <input id="sig" type="text">
+                </label>
+            </div>
+            <div>
+                <button onclick="makeHistogram()" id="make">
+                    Сделать гистограмму
+                </button>
+                <button id="download">
+                    Скачать гистограмму
+                </button>
+            </div>
+            <div>
+                <div id="info-box">Значение: </div>
+            </div>
         </div>
-        <div class="color-picker">
-            <label for="color-picker">Выбор цвета:</label>
-            <input type="color" id="color-picker" value="#00000">
-        </div>
-        <div class="color-picker-canvas">
-            <label for="color-picker-canvas">Выбор цвета для холста:</label>
-            <input type="color" id="color-picker-canvas" value="#DCDCDC">
+        <div class="right">
+            <div class="color-picker-rect">
+                <label for="color-picker-rect">Выбор цвета для прямоугольника:</label>
+                <input type="color" id="color-picker-rect" value="#191970">
+            </div>
+            <div class="color-picker">
+                <label for="color-picker">Выбор цвета:</label>
+                <input type="color" id="color-picker" value="#00000">
+            </div>
+            <div class="color-picker-canvas">
+                <label for="color-picker-canvas">Выбор цвета для холста:</label>
+                <input type="color" id="color-picker-canvas" value="#DCDCDC">
+            </div>
         </div>
     </div>
-    <br>
+    <p style="text-align: center" id="series"></p>
     <canvas id="histogram"></canvas>
     <script src="histogram.js"></script>
 </div>

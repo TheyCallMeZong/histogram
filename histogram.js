@@ -6,7 +6,7 @@ const widthOffset = 41
 
 //ширина колонки и расстояние между колонками
 const barWidth = 30
-let barSpacing = 10
+let barSpacing = 11
 
 //элемент где будет отрисовываться диаграмма
 const canvas = document.getElementById('histogram')
@@ -14,7 +14,7 @@ const canvas = document.getElementById('histogram')
 //инфа о прямоугольнике
 const infoBox = document.getElementById('info-box')
 
-let sig = document.getElementById("sig")
+document.getElementById("sig").addEventListener("input", () => setSignature())
 
 //контекст для рисования на холсте
 const ctx = canvas.getContext('2d')
@@ -55,6 +55,10 @@ function getNumbers(){
     for (let i = 0; i < data.length; i++){
         if (!isNaN(data[i])){
             dArray[i] = parseFloat(data[i])
+            if (dArray[i] < 0){
+                alert("Числа не могут быть отрицательными")
+                return 0
+            }
             if (isNaN(dArray[i])) {
                 alert("Неверно указаны входные данные")
                 return 0
@@ -70,7 +74,7 @@ function getNumbers(){
 
 //установка размера холста, если холст больше размеров экрана то мы катапультируемся
 function setSizeHistogram(data){
-    canvas.width = data.length * widthOffset + barWidth + sig.value.length * 8
+    canvas.width = data.length * widthOffset + barWidth
     canvas.height = 600
 }
 
@@ -83,6 +87,7 @@ function drawRectangle(data, maxValue){
         rectHeight[i] = barHeight
         ctx.fillRect(i * (barWidth + barSpacing) + offsetLeft, canvas.height - barHeight - offsetBot, barWidth,
             barHeight)
+        ctx.fillText(i.toString(), i * (barWidth + barSpacing) + offsetLeft + 10, canvas.height - 5)
     }
 }
 
@@ -103,8 +108,8 @@ function drawBackLines(maxValue){
 //добаление описания снизу гистограммы
 function setSignature(){
     ctx.font = "bold 16px Times New Roman"
-    let sig = document.getElementById("sig").value
-    ctx.fillText(sig,canvas.width / 2 - sig.length * 2, canvas.height - 2)
+    //ctx.fillText(sig,canvas.width / 2 - sig.length * 2, 20)
+    document.getElementById("series").innerHTML = document.getElementById("sig").value;
 }
 
 //отрисвока задней линии
@@ -149,7 +154,6 @@ function makeHistogram(){
     ctx.fillStyle = color
     drawBackLines(maxValue)
     drawBackVerticalLines()
-    setSignature()
 }
 
 
@@ -221,6 +225,5 @@ function check(){
         ctx.fillStyle = color
         drawBackLines(maxValue)
         drawBackVerticalLines()
-        setSignature()
     }
 }

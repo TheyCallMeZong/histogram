@@ -11,3 +11,11 @@
 При наведении на элемент гистограммы показывается значение этого элемента в div теге
 
 <img width="1439" alt="Снимок экрана 2023-02-20 в 19 02 06" src="https://user-images.githubusercontent.com/75227915/220101163-43823dc0-c4d0-4e8c-ae23-b0feaf99aece.png">
+
+### Скачать проект
+
+```sh
+git clone https://github.com/TheyCallMeZong/4LabaWeb](https://github.com/TheyCallMeZong/histogram)
+```
+
+Для запуска проекта запустите файл histogram.html

@@ -5,7 +5,7 @@
 ### Скачать проект
 
 ```sh
-git clone https://github.com/TheyCallMeZong/4LabaWeb](https://github.com/TheyCallMeZong/histogram)
+git clone https://github.com/TheyCallMeZong/histogram.git
 ```
 
 Для запуска проекта запустите файл histogram.html
